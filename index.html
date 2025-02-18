@@ -50,8 +50,15 @@
             .sidebar a {
                 text-decoration: none;
                 color: #333;
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 margin: 10px 0;
+            }
+            .sidebar a img {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
             }
             .content {
                 margin-left: 320px;
@@ -65,20 +72,20 @@
                 padding-top: 80px;
             }
             .experience {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        .experience h3 {
-            margin: 5px 0;
-            color: #222;
-        }
-        .experience p {
-            margin: 5px 0;
-            color: #555;
-        }
+                margin-bottom: 20px;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+            }
+            .experience h3 {
+                margin: 5px 0;
+                color: #222;
+            }
+            .experience p {
+                margin: 5px 0;
+                color: #555;
+            }
         </style>
     </head>
     <body>
@@ -95,14 +102,18 @@
                 <!-- <img src="https://via.placeholder.com/150" alt="Profile Picture"> -->
                 <h2>Dipu</h2>
                 <p>Software Engineer | Tech Enthusiast | Open Source Contributor</p>
+                <p>Tech Domains: Java, Spring Boot, MySQL, PostGres, Redis, AWS(Dynamo, lambda, sqs, sns, cloudwatch, s3 etc), Rest and SOAP API, React, Angular</p>
                 <p><a href="rdipu.roy01@gmail.com"><img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email Icon"></a></p>
-                <p><a href="https://github.com/dipu11">GitHub</a></p>
-                <p><a href="https://dipu11.medium.com/">Website</a></p>
+                <p><a href="https://github.com/dipu11"><img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub Icon">GitHub</a></p>
+                <p><a href="https://dipu11.medium.com/"><img src="https://img.icons8.com/ios-filled/50/000000/domain.png" alt="Website Icon">Medium</a></p>
             </div>
             <div class="content">
                 <section id="profile">
                     <h1>About Me</h1>
-                    <p>I am an experienced software engineer with more than 8 years of experience, specializing in backend development and open-source projects. Currently, I am working as a fullstack software engineer based in Dhaka, Bangladesh</p>
+                    <p>I am an experienced software engineer with more than 8 years of experience, specializing in backend development and open-source projects. Currently, I am working as a fullstack software engineer based in Dhaka, Bangladesh. I have significant 
+                    amount of work experience in Java, Spring Boot, relational and non-relational DBs. I love giving thoughts to shapes using code. I am a naturally hardworking nad punctual guy who loves his work.
+                    Also, I love running and playing football a lot!
+                </p>
                 </section>
                 <section id="publications">
                     <h1>Publications</h1>
@@ -116,6 +127,8 @@
                         <p>Feb 2023 - Present</p>
                         <ul>
                             <li>Working on developing scalable web applications and cloud-based solutions for US restaurants to solve their problems</li>
+                            <li>Working with POS and Accounting System integrations</li>
+                            <li>REST service development</li>
                         </ul>
                     </div>
                     <div class="experience">
@@ -123,6 +136,7 @@
                         <p><strong>TigerIT Bangladesh Ltd.</strong></p>
                         <p>March 2019 - jan 2023</p>
                         <ul>
+                            <li>REST service development</li>
                             <li>Worked on a very large scale backend service which handled more than 120 million users record</li>
                             <li>Led the backend team for multiple projects</li>
                             <li>Was responsible for design, development and deployment of backend services</li>
@@ -133,6 +147,10 @@
                         <p><strong>REVE Chat, REVE Systems Ltd</strong></p>
                         <p>April 2017 - Feb 2019</p>
                         <ul>
+                            <li>REST service development</li>
+                            <li>Integrated most of the CRMs till date REVE chat has</li>
+                            <li>Integrated skype and telegram bot with the chatting system for users' convenience</li>
+                            <li>Worked on query optimization which led to drastical improvement of the reporting system</li>
                         </ul>
                     </div>
                 </section>
