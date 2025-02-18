@@ -1,147 +1,145 @@
-# dipu11.github.io
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dipu Ram Roy</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                scroll-behavior: smooth;
+            }
+            .header {
+                background-color: #333;
+                color: white;
+                padding: 15px;
+                text-align: center;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 1000;
+            }
+            .header nav a {
+                color: white;
+                text-decoration: none;
+                margin: 0 15px;
+                cursor: pointer;
+            }
+            .container {
+                display: flex;
+                margin-top: 60px;
+            }
+            .sidebar {
+                width: 300px;
+                background-color: #f5f5f5;
+                padding: 20px;
+                text-align: center;
+                position: fixed;
+                height: 100%;
+                top: 60px;
+            }
+            .sidebar img {
+                width: 150px;
+                border-radius: 50%;
+                margin-bottom: 15px;
+            }
+            .sidebar a {
+                text-decoration: none;
+                color: #333;
+                display: block;
+                margin: 10px 0;
+            }
+            .content {
+                margin-left: 320px;
+                padding: 40px;
+                max-width: 800px;
+            }
+            h1, h2 {
+                color: #333;
+            }
+            section {
+                padding-top: 80px;
+            }
+            .experience {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
             background-color: #f9f9f9;
-            color: #333;
         }
-        header {
-            background: #004080;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
+        .experience h3 {
+            margin: 5px 0;
+            color: #222;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            background: #0066cc;
-            padding: 0.5rem 0;
+        .experience p {
+            margin: 5px 0;
+            color: #555;
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 1rem;
-            background: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .profile {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        .profile img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-        }
-        .profile div {
-            flex: 1;
-        }
-        .profile h1 {
-            margin: 0;
-        }
-        .section {
-            margin-bottom: 2rem;
-        }
-        .section h2 {
-            border-bottom: 2px solid #0066cc;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .section ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .section ul li {
-            margin-bottom: 0.5rem;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>Dipu</h1>
-    <p>Software Engineer</p>
-</header>
-
-<nav>
-    <a href="#updates">Updates</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#publications">Publications</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<div class="container">
-    <div class="profile">
-        <img src="profile.jpg" alt="Dipu">
-        <div>
-            <h1>Dipu Roy</h1>
-            <p>Email: myEmailId</p>
-            <p><a href="https://dipu11.medium.com/">Medium</a></p>
-            <p><a href="https://stackoverflow.com/users/5332914/user404">Stack Overflow</a></p>
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <nav>
+                <a href="#profile">Profile</a>
+                <a href="#experience">Experience</a>
+                <a href="#publications">Publications</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-    </div>
-
-    <div class="section" id="updates">
-        <h2>Updates</h2>
-        <ul>          
-        </ul>
-    </div>
-
-    <div class="section" id="experience">
-        <h2>Experience</h2>
-        <ul>
-            <li>Senior Software Engineer- Tekarsh | MarginEdge [Feb 2023 - present]</li>
-            <li>Software Engineer - TigerIT Bd. Ltd [March 2019 - Jan 2023]</li>
-            <li>Software Engineer - REVE Chat, REVE Systems [April 2017 - Feb 2019]</li>
-        </ul>
-    </div>
-    
-    <div class="section" id="education">
-        <h2>Education</h2>
-        <ul>
-            <li>Bachelor in Computer Science and Engineering, CSE, BUET [Feb, 2017]</li>            
-        </ul>
-    </div>
-
-    <div class="section" id="publications">
-        <h2>Selected Publications</h2>
-    </div>
-
-    <div class="section" id="contact">
-        <h2>Contact</h2>
-        <p>Shoot me an email</p>
-    </div>
-</div>
-
-<footer class="footer">
-    <p>&copy; 2025 Dipu Roy. All rights reserved.</p>
-</footer>
-
-</body>
+        <div class="container">
+            <div class="sidebar">
+                <!-- <img src="https://via.placeholder.com/150" alt="Profile Picture"> -->
+                <h2>Dipu</h2>
+                <p>Software Engineer | Tech Enthusiast | Open Source Contributor</p>
+                <p><a href="rdipu.roy01@gmail.com">Email</a></p>
+                <p><a href="https://github.com/dipu11">GitHub</a></p>
+                <p><a href="https://dipu11.medium.com/">Website</a></p>
+            </div>
+            <div class="content">
+                <section id="profile">
+                    <h1>About Me</h1>
+                    <p>I am an experienced software engineer with more than 8 years of experience, specializing in backend development and open-source projects. Currently, I am working as a fullstack software engineer based in Dhaka, Bangladesh</p>
+                </section>
+                <section id="publications">
+                    <h1>Publications</h1>
+                    <p>coming soon...</p>
+                </section>
+                <section id="experience">
+                    <h1>Experience</h1>
+                    <div class="experience">
+                        <h3>Senior Software Engineer</h3>
+                        <p><strong>Tekarsh Bangladesh Ltd</strong></p>
+                        <p>Feb 2023 - Present</p>
+                        <p>Worked on developing scalable web applications and cloud-based solutions.</p>
+                    </div>
+                    <div class="experience">
+                        <h3>Senior Software Engineer</h3>
+                        <p><strong>TigerIT Bangladesh Ltd.</strong></p>
+                        <p>March 2019 - jan 2023</p>
+                        <ul>
+                            <li>Worked on a very large scale backend service which handled more than 120 million users record</li>
+                            <li>Led the backend team for multiple projects</li>
+                            <li>Was responsible for design, development and deployment of backend services</li>
+                        </ul>
+                    </div>
+                    <div class="experience">
+                        <h3>Software Engineer</h3>
+                        <p><strong>REVE Chat, REVE Systems Ltd</strong></p>
+                        <p>April 2017 - Feb 2019</p>
+                        <ul>
+                        </ul>
+                    </div>
+                </section>
+                <section id="contact">
+                    <h1>Contact</h1>
+                    <p>Email: rdipu.roy01@gmail.com</p>
+                    <p>GitHub: <a href="https://github.com/dipu11">dipu11</a></p>
+                </section>
+            </div>
+        </div>
+    </body>
 </html>
-
