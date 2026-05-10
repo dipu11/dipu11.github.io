@@ -1,203 +1,949 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dipu Ram Roy</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                flex-direction: column;
-                scroll-behavior: smooth;
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dipu Roy | Senior Software Engineer</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --text: #0f172a;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            --radius: 18px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            color: var(--muted);
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 120px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 64px;
+            line-height: 1.1;
+            margin-bottom: 18px;
+        }
+
+        .hero-text h2 {
+            font-size: 26px;
+            color: var(--primary);
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--muted);
+            max-width: 800px;
+        }
+
+        .hero-buttons {
+            margin-top: 36px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: 0.25s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* =========================
+           SECTION
+        ========================== */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+
+        /* =========================
+           CARD
+        ========================== */
+
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            margin-bottom: 28px;
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        /* =========================
+           HIGHLIGHTS
+        ========================== */
+
+        .highlight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .highlight-badge {
+            padding: 12px 18px;
+            border-radius: 999px;
+            background: white;
+            border: 1px solid var(--border);
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .highlight-badge:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* =========================
+           EXPERIENCE
+        ========================== */
+
+        .job-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .company {
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .duration {
+            color: var(--muted);
+            margin-top: 8px;
+            margin-bottom: 18px;
+            font-size: 14px;
+        }
+
+        .card ul {
+            padding-left: 20px;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+            color: #334155;
+        }
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-badge {
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: white;
+            border: 1px solid var(--border);
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .skill-badge:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* =========================
+           PUBLICATIONS
+        ========================== */
+
+        .publication-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .publication-meta {
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            margin-top: 40px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media(max-width:768px) {
+
+            .hero-text h1 {
+                font-size: 44px;
             }
-            .header {
-                background-color: #333;
-                color: white;
-                padding: 15px;
-                text-align: center;
-                position: fixed;
-                width: 100%;
-                top: 0;
-                left: 0;
-                z-index: 1000;
+
+            .hero-text h2 {
+                font-size: 22px;
             }
-            .header nav a {
-                color: white;
-                text-decoration: none;
-                margin: 0 15px;
-                cursor: pointer;
+
+            .section-title {
+                font-size: 32px;
             }
-            .container {
-                display: flex;
-                margin-top: 60px;
+
+            .nav-links {
+                gap: 12px;
+                font-size: 13px;
             }
-            .sidebar {
-                width: 300px;
-                background-color: #f5f5f5;
-                padding: 20px;
-                text-align: center;
-                position: fixed;
-                height: 100%;
-                top: 60px;
+
+            .hero {
+                padding-top: 130px;
             }
-            .sidebar img {
-                width: 150px;
-                border-radius: 50%;
-                margin-bottom: 15px;
-            }
-            .sidebar a {
-                text-decoration: none;
-                color: #333;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 10px 0;
-            }
-            .sidebar a img {
-                width: 20px;
-                height: 20px;
-                margin-right: 10px;
-            }
-            .content {
-                margin-left: 320px;
-                padding: 40px;
-                max-width: 800px;
-            }
-            h1, h2 {
-                color: #333;
-            }
-            section {
-                padding-top: 80px;
-            }
-            .experience {
-                margin-bottom: 20px;
-                padding: 10px;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                background-color: #f9f9f9;
-            }
-            .experience h3 {
-                margin: 5px 0;
-                color: #222;
-            }
-            .experience p {
-                margin: 5px 0;
-                color: #555;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="header">
-            <nav>
-                <a href="#profile">Profile</a>
+
+        }
+		
+		.email-row{
+			display:flex;
+			align-items:center;
+			gap:16px;
+			margin-top:10px;
+		}
+
+		.email-label{
+			font-weight:600;
+			color:var(--text);
+		}
+
+		.email-button{
+			display:inline-flex;
+			align-items:center;
+			justify-content:center;
+
+			padding:10px 18px;
+
+			background:var(--primary);
+			color:white !important;
+
+			border-radius:10px;
+
+			font-weight:600;
+			font-size:14px;
+
+			transition:0.25s;
+		}
+
+		.email-button:hover{
+			background:var(--primary-hover);
+			transform:translateY(-2px);
+			box-shadow:var(--shadow);
+		}
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="container nav-content">
+
+            <div class="logo">
+                Dipu Roy
+            </div>
+
+            <div class="nav-links">
+                <a href="#about">About</a>
                 <a href="#experience">Experience</a>
                 <a href="#publications">Publications</a>
-                <a href="#skill">Skills</a>
+                <a href="#research">Research</a>
+                <a href="#skills">Skills</a>
                 <a href="#education">Education</a>
                 <a href="#contact">Contact</a>
-            </nav>
+            </div>
+
         </div>
+
+    </nav>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <h1>Dipu Roy</h1>
+
+                <h2>
+                    Senior Backend & Cloud Engineer
+                </h2>
+
+                <p>
+                    Senior Software Engineer with 9+ years of experience building scalable SaaS platforms,
+                    backend systems, enterprise integrations, and distributed cloud applications using Java,
+                    Spring Boot, AWS, and event-driven architectures.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a class="btn btn-primary"
+                        href="https://github.com/dipu11"
+                        target="_blank">
+                        GitHub
+                    </a>
+
+                    <a class="btn btn-secondary"
+                        href="https://scholar.google.com/citations?user=oSAof5cAAAAJ&hl=en"
+                        target="_blank">
+                        Google Scholar
+                    </a>
+
+                    <a class="btn btn-secondary"
+                        href="https://stackoverflow.com/users/5332914/user404"
+                        target="_blank">
+                        StackOverflow
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         HIGHLIGHTS
+    ========================== -->
+
+    <section id="highlights">
+
         <div class="container">
-            <div class="sidebar">
-                <!-- <img src="https://via.placeholder.com/150" alt="Profile Picture"> -->
-                <h2>Dipu Roy</h2>
-                <p>Software Engineer | Tech Enthusiast | Open Source Contributor</p>
-                <p>Tech Domains: Java, Spring Boot, MySQL, PostGres, Redis, AWS(Dynamo, lambda, sqs, sns, cloudwatch, s3 etc), Rest and SOAP API, React, Angular</p>
-                <p><a href="rdipu.roy01@gmail.com"><img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email Icon">Email</a></p>
-                <p><a href="https://stackoverflow.com/users/5332914/user404"><img src="https://img.icons8.com/ios-filled/50/000000/stackoverflow.png" alt="Stack Overflow Icon">user404</a></p>
-                <p><a href="https://github.com/dipu11"><img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub Icon">GitHub</a></p>
-                <p><a href="https://dipu11.medium.com/"><img src="https://img.icons8.com/ios-filled/50/000000/domain.png" alt="Website Icon">Medium</a></p>
-                <p><a href="https://dipu11.medium.com/"><img src="https://img.icons8.com/ios-filled/50/000000/domain.png" alt="Website Icon">Medium</a></p>
+
+            <h2 class="section-title">
+                Highlights
+            </h2>
+
+            <div class="highlight-grid">
+
+                <div class="highlight-badge">9+ Years Experience</div>
+
+                <div class="highlight-badge">120M+ User Records</div>
+
+                <div class="highlight-badge">AWS Cloud</div>
+
+                <div class="highlight-badge">Distributed Systems</div>
+
+                <div class="highlight-badge">Event-Driven Architecture</div>
+
+                <div class="highlight-badge">ACM Publications</div>
+
+                <div class="highlight-badge">Backend Architecture</div>
+
+                <div class="highlight-badge">Tech Lead</div>
+
             </div>
-            <div class="content">
-                <section id="profile">
-                    <h1>About Me</h1>
-                    <p>I am a software engineer with over 9 years of experience, specializing in backend development and contributing to open-source projects. Currently, I work as a full-stack engineer based in Dhaka, Bangladesh.
-                    </br></br>
-                    My expertise lies in Java, Spring Boot, and both relational and non-relational databases. I enjoy transforming ideas into functional, efficient code and take pride in writing clean, scalable solutions.
-                    </br></br>
-                    Beyond coding, I am a hardworking and punctual professional who genuinely loves what I do. Outside of work, you’ll often find me running or playing football, my favorite ways to recharge and stay active.
-                    </p>
-                </section>
-                <section id="publications">
-                    <h1>Publications(<a href="https://scholar.google.com/citations?user=oSAof5cAAAAJ&hl=en">Google Scholar</a>)</h1>
-                    <ul>
-                        <li>Poster Abstract: PrivacyVis: Interactive Visualization Tool for Privacy Risks of Internet of Things Sensors
-                            <ul>
-                                <li>2025-05-06 | Conference paper</li>
-                                <li>Authors: <u><a href="https://orcid.org/my-orcid?orcid=0009-0005-5348-9801">Dipu Ram Roy</a></u>; <a href="https://orcid.org/0000-0002-4303-7722">Jieqiong Zhao</a>; <a href="https://orcid.org/0000-0002-3226-2318">Shijia Pan</a>; <a href="https://orcid.org/0000-0003-0134-5003">Shiwei Fang</a></li>
-                                <li>DOI:<a href="https://dl.acm.org/doi/10.1145/3715014.3724041">10.1145/3715014.3724041</a></li>
-                                <li>SenSys '25: Proceedings of the 23rd ACM Conference on Embedded Networked Sensor Systems | Pages 628 - 62</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>Towards Understanding User Privacy Concerns of Internet of Things Sensor Data
-                            <ul>
-                                <li>2025-05-06 | Conference paper</li>
-                                <li>Authors: <u><a href="https://orcid.org/my-orcid?orcid=0009-0005-5348-9801">Dipu Ram Roy</a></u>; <a href="https://orcid.org/0000-0002-4303-7722">Jieqiong Zhao</a>; <a href="https://orcid.org/0000-0002-3226-2318">Shijia Pan</a>; <a href="https://orcid.org/0000-0003-0134-5003">Shiwei Fang</a></li>
-                                <li>DOI:<a href="https://dl.acm.org/doi/10.1145/3722566.3727627">10.1145/3722566.3727627</a></li>
-                                <li>Sensors S&P '25: Proceedings of the 2nd International Workshop on Security and Privacy of Sensing Systems | Pages 1 - 5</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-                <section id="experience">
-                    <h1>Experience</h1>
-                    <div class="experience">
-                        <h3>Senior Software Engineer</h3>
-                        <p><strong>Tekarsh Bangladesh Ltd</strong></p>
-                        <p>Feb 2023 - Present</p>
-                        <ul>
-                            <li>Working on developing scalable web applications and cloud-based solutions for US restaurants to solve their problems</li>
-                            <li>Working with POS and Accounting System integrations</li>
-                            <li>REST service development</li>
-                        </ul>
-                    </div>
-                    <div class="experience">
-                        <h3>Senior Software Engineer</h3>
-                        <p><strong>TigerIT Bangladesh Ltd.</strong></p>
-                        <p>March 2019 - jan 2023</p>
-                        <ul>
-                            <li>REST service development</li>
-                            <li>Worked on a very large scale backend service which handled more than 120 million users record</li>
-                            <li>Led the backend team for multiple projects</li>
-                            <li>Was responsible for design, development and deployment of backend services</li>
-                        </ul>
-                    </div>
-                    <div class="experience">
-                        <h3>Software Engineer</h3>
-                        <p><strong>REVE Chat, REVE Systems Ltd</strong></p>
-                        <p>April 2017 - Feb 2019</p>
-                        <ul>
-                            <li>REST service development</li>
-                            <li>Integrated most of the CRMs till date REVE chat has</li>
-                            <li>Integrated skype and telegram bot with the chatting system for users' convenience</li>
-                            <li>Worked on query optimization which led to drastical improvement of the reporting system</li>
-                        </ul>
-                    </div>
-                </section>
-                <section id="skill">
-                    <h1>Skill</h1>
-                    <p><strong>Programming Languages:</strong> Java, Python, C/C++, Javascript, BashScript</p>
-                    <p><strong>Web Development & Framework and Tools:</strong> Spring Boot, React, Angular, REST and SOAP API, Microservice, Kafka</p>
-                    <p><strong>Database:</strong>MySQL, POSTGres, DynamoDB, ElasticSearch, Redis</p>
-                    <p><strong>Libraries and Tools:</strong> Pytorch, Numpy, Tensorflow, Pandas, Matplotlib, Seaborn</p>
-                </section>
-                <section id="education">
-                    <h1>Education</h1>
-                    <ul>
-                        <li>Bachelor of Science in Computer Science & Engineering, CSE, BUET, Dhaka, Bangladesh</li>
-                    </ul>
-                </section>
-                <section id="contact">
-                    <h1>Contact</h1>
-                    <p>Email: rdipu.roy01@gmail.com</p>
-                    <p>GitHub: <a href="https://github.com/dipu11">dipu11</a></p>
-                </section>
-            </div>
+
         </div>
-    </body>
+
+    </section>
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                About Me
+            </h2>
+
+            <div class="card">
+
+                <p>
+                    I am a Senior Software Engineer with 9+ years of experience building scalable backend systems,
+                    cloud-native applications, and enterprise integrations.
+                    My expertise includes Java, Spring Boot, AWS, distributed systems,
+                    relational/non-relational databases, and microservice architecture.
+                </p>
+
+                <br>
+
+                <p>
+                    Currently, I work as a Tech Lead / Senior Software Engineer at MarginEdge,
+                    where I develop scalable SaaS solutions, data integration pipelines,
+                    POS/accounting integrations, and event-driven cloud systems serving
+                    11,000+ restaurant owners.
+                </p>
+
+                <br>
+
+                <p>
+                    Alongside industry experience, I actively contribute to research and open-source work,
+                    with publications in ACM venues. My interests include distributed systems,
+                    software engineering, privacy, and AI-assisted engineering workflows.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         EXPERIENCE
+    ========================== -->
+
+    <section id="experience">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Experience
+            </h2>
+
+            <!-- MarginEdge -->
+
+            <div class="card">
+
+                <div class="job-title">
+                    Tech Lead | Senior Software Engineer-I
+                </div>
+
+                <div class="company">
+                    MarginEdge | Tekarsh Bangladesh Ltd
+                </div>
+
+                <div class="duration">
+                    Feb 2023 - Present
+                </div>
+
+                <ul>
+
+                    <li>
+                        Leading newly formed internal data integration team for product-led growth initiatives
+                    </li>
+
+                    <li>
+                        Built a config-driven data integration pipeline reducing onboarding time by around 90%
+                    </li>
+
+                    <li>
+                        Developing and maintaining cloud-based SaaS solutions serving 11,000+ restaurant owners
+                    </li>
+
+                    <li>
+                        Designed a standardized POS integration framework reducing integration time by 70%
+                    </li>
+
+                    <li>
+                        Improved export reliability and reduced API overuse with retry and rate-limiting strategies
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- TigerIT -->
+
+            <div class="card">
+
+                <div class="job-title">
+                    Senior Software Engineer
+                </div>
+
+                <div class="company">
+                    TigerIT Bangladesh Ltd
+                </div>
+
+                <div class="duration">
+                    March 2019 - Jan 2023
+                </div>
+
+                <ul>
+
+                    <li>
+                        Contributed to backend development of Bangladesh voter registration system
+                        managing records of 120+ million users
+                    </li>
+
+                    <li>
+                        Customized SignServer for secure authentication across government systems
+                    </li>
+
+                    <li>
+                        Led backend services and enforced engineering code review practices
+                    </li>
+
+                    <li>
+                        Worked on scalable backend systems using Java, Spring Boot, Kafka, Redis,
+                        Elasticsearch, and MySQL
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- REVE -->
+
+            <div class="card">
+
+                <div class="job-title">
+                    Software Engineer
+                </div>
+
+                <div class="company">
+                    REVE Systems Ltd
+                </div>
+
+                <div class="duration">
+                    April 2017 - Feb 2019
+                </div>
+
+                <ul>
+
+                    <li>
+                        Integrated multiple CRM systems and messaging bots into unified chat services
+                    </li>
+
+                    <li>
+                        Built backend services and enterprise integrations for REVE Chat
+                    </li>
+
+                    <li>
+                        Optimized public REST API query performance significantly
+                    </li>
+
+                    <li>
+                        Worked with Java, Spring MVC, MySQL, NodeJs, and Express
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         PUBLICATIONS
+    ========================== -->
+
+    <section id="publications">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Publications
+            </h2>
+
+            <!-- Publication 1 -->
+
+            <div class="card">
+
+                <div class="publication-title">
+                    PrivacyVis: Interactive Visualization Tool for Privacy Risks of Internet of Things Sensors
+                </div>
+
+                <div class="publication-meta">
+                    ACM SenSys 2025 | Conference Paper
+                </div>
+
+                <p>
+                    Authors: Dipu Ram Roy, Jieqiong Zhao, Shijia Pan, Shiwei Fang
+                </p>
+
+                <br>
+
+                <a href="https://dl.acm.org/doi/10.1145/3715014.3724041"
+                    target="_blank"
+                    class="btn btn-secondary">
+
+                    Read Paper
+
+                </a>
+
+            </div>
+
+            <!-- Publication 2 -->
+
+            <div class="card">
+
+                <div class="publication-title">
+                    Towards Understanding User Privacy Concerns of Internet of Things Sensor Data
+                </div>
+
+                <div class="publication-meta">
+                    Sensors S&P 2025 | Workshop Paper
+                </div>
+
+                <p>
+                    Authors: Dipu Ram Roy, Jieqiong Zhao, Shijia Pan, Shiwei Fang
+                </p>
+
+                <br>
+
+                <a href="https://dl.acm.org/doi/10.1145/3722566.3727627"
+                    target="_blank"
+                    class="btn btn-secondary">
+
+                    Read Paper
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         RESEARCH
+    ========================== -->
+
+    <section id="research">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Interests
+            </h2>
+
+            <div class="card">
+
+                <p>
+                    Distributed Systems, Software Engineering,
+                    Privacy & Security, Human-Centered Computing,
+                    Software Engineering,
+                    Distributed Systems, and Scalable Cloud Computing.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Skills
+            </h2>
+
+            <div class="skills">
+
+                <div class="skill-badge">Java</div>
+
+                <div class="skill-badge">Spring Boot</div>
+
+                <div class="skill-badge">Python</div>
+
+                <div class="skill-badge">AWS</div>
+
+                <div class="skill-badge">Kafka</div>
+
+                <div class="skill-badge">Redis</div>
+
+                <div class="skill-badge">PostgreSQL</div>
+
+                <div class="skill-badge">MySQL</div>
+
+                <div class="skill-badge">DynamoDB</div>
+
+                <div class="skill-badge">Snowflake</div>
+
+                <div class="skill-badge">Airflow</div>
+
+                <div class="skill-badge">ElasticSearch</div>
+
+                <div class="skill-badge">Microservices</div>
+
+                <div class="skill-badge">REST API</div>
+
+                <div class="skill-badge">React</div>
+
+                <div class="skill-badge">Angular</div>
+
+                <div class="skill-badge">Docker</div>
+
+                <div class="skill-badge">CI/CD</div>
+
+                <div class="skill-badge">Jenkins</div>
+
+                <div class="skill-badge">Event-Driven Architecture</div>
+
+                <div class="skill-badge">TDD</div>
+
+                <div class="skill-badge">DDD</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         EDUCATION
+    ========================== -->
+
+    <section id="education">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Education
+            </h2>
+
+            <div class="card">
+
+                <h3>
+                    Bachelor of Science in Computer Science & Engineering
+                </h3>
+
+                <p>
+                    Bangladesh University of Engineering & Technology (BUET)
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Contact
+            </h2>
+
+            <div class="card">
+                <p class="email-row">
+					<span class="email-label">
+						Email
+					</span>
+
+					<a class="email-button"
+					   href="mailto:rdipu.roy01@gmail.com">
+						Contact Me
+					</a>
+				</p>
+
+                <div class="contact-links">
+
+                    <a class="btn btn-secondary"
+                        href="https://github.com/dipu11"
+                        target="_blank">
+                        GitHub
+                    </a>
+
+                    <a class="btn btn-secondary"
+                        href="https://stackoverflow.com/users/5332914/user404"
+                        target="_blank">
+                        StackOverflow
+                    </a>
+
+                    <a class="btn btn-secondary"
+                        href="https://dipu11.medium.com/"
+                        target="_blank">
+                        Medium
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            © 2026 Dipu Roy | Senior Backend & Cloud Engineer
+
+        </div>
+
+    </footer>
+
+</body>
+
 </html>
